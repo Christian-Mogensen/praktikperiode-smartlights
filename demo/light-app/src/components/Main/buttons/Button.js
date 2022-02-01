@@ -1,14 +1,17 @@
 import React from "react";
 import {motion} from 'framer-motion'
-
+import {
+  Link
+} from 'react-router-dom';
 
 
 const btnItem = {
   hidden: { opacity: 0, x:30 },
   show: { opacity: 1, x:0 }
 }
-const Button = ({variant, btnImg, btnH, btnS }) => {
+const Button = ({clickRoute, variant, btnImg, btnH, btnS }) => {
   return (
+    <Link to={clickRoute}>
     <motion.div 
     variants={variant}
     className="bg-white cursor-pointer h-[150px] place-self-center rounded-[20px] w-[150px] p-5 btn__dropshadow-blue flex flex-col justify-between">
@@ -20,6 +23,7 @@ const Button = ({variant, btnImg, btnH, btnS }) => {
         <motion.span variants={btnItem} className="text-[#FFA939] font-bold text-[13px]">{btnS}</motion.span>
       </div>
     </motion.div>
+      </Link>
   );
 };
 

@@ -16,31 +16,37 @@ const ButtonMenu = () => {
       name: "Bed room",
       light: "4 Lights",
       src: bedImg,
+      path:"/LightSetting"
     },
     {
       name: "Living room",
       light: "2 Lights",
       src: livingRoomImg,
+      path:"/LightSetting"
     },
     {
       name: "Kitchen",
       light: "5 Lights",
       src: kitchenImg,
+      path:"/LightSetting"
     },
     {
       name: "Bathroom",
       light: "1 Light",
       src: bathroomImg,
+      path:"/LightSetting"
     },
     {
       name: "Outdoor",
       light: "5 Lights",
       src: houseImg,
+      path:"/LightSetting"
     },
     {
       name: "Balcony",
       light: "2 Lights",
       src: balchonyImg,
+      path:"/LightSetting"
     },
   ];
   const container = {
@@ -70,6 +76,7 @@ const ButtonMenu = () => {
             btnImg={btn.src}
             btnH={btn.name}
             btnS={btn.light}
+            clickRoute={btn.path}
             variant={item}
           />
         ))}
