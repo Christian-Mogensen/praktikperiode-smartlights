@@ -8,6 +8,8 @@ import houseImg from "../../../assets/img/button/house.png";
 import balchonyImg from "../../../assets/img/button/balcony.png";
 import Header from "../Header";
 
+import {motion} from 'framer-motion'
+
 const ButtonMenu = () => {
   const buttonContent = [
     {
@@ -41,19 +43,37 @@ const ButtonMenu = () => {
       src: balchonyImg,
     },
   ];
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+  
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 }
+  }
   return (
     <>
       <Header value={"All rooms"} />
-      <div className="grid grid-cols-2 gap-5">
+      <motion.div variants={container}
+      initial="hidden"
+      animate="show"
+      className="grid grid-cols-2 gap-5">
         {buttonContent.map((btn, index) => (
           <Button
             key={`uni-${index}`}
             btnImg={btn.src}
             btnH={btn.name}
             btnS={btn.light}
+            variant={item}
           />
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

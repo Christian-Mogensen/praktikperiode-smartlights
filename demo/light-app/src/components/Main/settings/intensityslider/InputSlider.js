@@ -5,9 +5,9 @@ import Solution from "../../../../assets/img/icons/intensityslider/Solution";
 import Solution2 from "../../../../assets/img/icons/intensityslider/Solution2";
 import IntensityMarks from "./IntensityMarks";
 
-const STEP = 0.1;
+const STEP = 1;
 const MIN = 0;
-const MAX = 100;
+const MAX = 99;
 
 
 class InputSlider extends React.Component {
@@ -22,7 +22,7 @@ class InputSlider extends React.Component {
     return (
         <div className="flex items-end w-full gap-3">
 <div><Solution /></div>
-      <div className="px-2 w-full flex flex-col gap-3"
+      <div className="flex flex-col w-full gap-3 px-2"
         
         >
         <Range
@@ -31,7 +31,12 @@ class InputSlider extends React.Component {
           min={MIN}
           max={MAX}
           onChange={(values) =>( this.setState({ values },
-            console.log(`rgba(255, 210, 57,0.${Math.ceil(this.state.values)})`)))}
+            console.log(`
+            #ffd239${this.state.values < 10? 
+              '0'+ Math.ceil(this.state.values):
+              this.state.values < 100?  
+              Math.ceil(this.state.values)
+              :''})`)))}
           renderTrack={({ props, children }) => (
             <div
               onMouseDown={props.onMouseDown}
@@ -90,7 +95,11 @@ class InputSlider extends React.Component {
 <IntensityMarks />
       </div>
       <div className="relative"><Solution2 clr="#cecece" />
-      <div className={`z-10 absolute top-0 left-0 right-0 bottom-0`}><Solution2 clr={`rgba(255, 210, 57,${this.state.values < 100? '0.'+ Math.ceil(this.state.values):100})`} /></div>
+      <div className={`z-10 absolute top-0 left-0 right-0 bottom-0`}><Solution2 clr={`#ffd239${this.state.values < 10? 
+              '00':
+              this.state.values < 90?  
+              Math.ceil(this.state.values)
+              :''}`} /></div>
 </div></div>
     );
   }
