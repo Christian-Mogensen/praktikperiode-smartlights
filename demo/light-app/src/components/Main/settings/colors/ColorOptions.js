@@ -11,8 +11,7 @@ const ColorOptions = () => {
     { clr: "bg-purple-400", val: "", fmiv:-65 },
     { clr: "bg-pink-400", val: "", fmiv:-87 },
     { clr: "bg-orange-400", val: "", fmiv:-107 },
-    { clr: "bg-white", val: "+", 
-     fmiv:-130 },
+    { clr: "bg-white", val: "+", fmiv:-130 }
   ];
   return (
     <div>
