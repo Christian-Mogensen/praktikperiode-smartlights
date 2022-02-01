@@ -9,14 +9,22 @@ import BgCircle from "./components/wrapper/BgCircle";
 import Wrapper from "./components/wrapper/Wrapper";
 import DemoLight from "./components/aside/DemoLight";
 
+import {motion} from 'framer-motion'
+
 function App() {
   const coordsArr = ["-left-10 -top-10", "-right-24 top-0", "left-10 top-40"];
   const [btnActive, setBtnActive] = useState(false);
   return (
     <Wrapper>
+      <motion.div
+      initial={{rotate:45}}
+      animate={{rotate:0}}
+      transition={{duration:0.5}}
+      >
       {coordsArr.map((circlepos, index) => (
         <BgCircle key={index} coords={circlepos} />
-      ))}
+        ))}
+        </motion.div>
       {btnActive ? (
         <Header />
       ) : (
