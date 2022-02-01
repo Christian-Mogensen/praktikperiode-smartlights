@@ -8,3 +8,61 @@
 .btn__dropshadow-blue{
     box-shadow: 0 3px 11px 0px rgba(0, 45, 103,0.06);
 }
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+    -moz-transition: opacity .2s;
+    -ms-transition: opacity .2s;
+    -o-transition: opacity .2s;
+}
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    background: white;
+    box-shadow: 0 3px 4px 0px rgba(0, 45, 103,0.12);
+    cursor: pointer;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+  
+  .slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: white;
+    box-shadow: 0 3px 4px 0px rgba(0, 45, 103,0.12);
+    cursor: pointer;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.button-column{
+    grid-template-columns: 60px 1fr;
+}
+.light-grid{
+  grid-template-columns: 36px 1fr;
+}
+.btn-variations:nth-child(even){
+background-color: #093B7B;
+color: white;
+}
+.header-width {
+    width: 10ch;
+}

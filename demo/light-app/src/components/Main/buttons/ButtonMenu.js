@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "./Button";
-import bedImg from '../../../assets/img/button/bed.png'
-import livingRoomImg from '../../../assets/img/button/room.png'
-import kitchenImg from '../../../assets/img/button/kitchen.png'
-import bathroomImg from '../../../assets/img/button/bathtube.png'
-import houseImg from '../../../assets/img/button/house.png'
-import balchonyImg from '../../../assets/img/button/balcony.png'
+import bedImg from "../../../assets/img/button/bed.png";
+import livingRoomImg from "../../../assets/img/button/room.png";
+import kitchenImg from "../../../assets/img/button/kitchen.png";
+import bathroomImg from "../../../assets/img/button/bathtube.png";
+import houseImg from "../../../assets/img/button/house.png";
+import balchonyImg from "../../../assets/img/button/balcony.png";
+import Header from "../Header";
 
 const ButtonMenu = () => {
   const buttonContent = [
@@ -41,11 +42,19 @@ const ButtonMenu = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-2 gap-5">
-      {buttonContent.map((btn, index) => (
-        <Button key={`inu${index}`} btnImg={btn.src} btnH={btn.name} btnS={btn.light} />
-      ))}
-    </div>
+    <>
+      <Header value={"All rooms"} />
+      <div className="grid grid-cols-2 gap-5">
+        {buttonContent.map((btn, index) => (
+          <Button
+            key={`uni-${index}`}
+            btnImg={btn.src}
+            btnH={btn.name}
+            btnS={btn.light}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
