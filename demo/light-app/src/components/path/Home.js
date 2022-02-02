@@ -5,7 +5,7 @@ import Header from "../header/Header";
 import Main from "../Main/Main";
 import ButtonMenu from "../Main/buttons/ButtonMenu";
 
-const Home = () => {
+const Home = ({state}) => {
   const coordsArr = ["-left-10 -top-10", "-right-24 top-0", "left-10 top-40"];
   return (
     <>
@@ -19,7 +19,7 @@ const Home = () => {
         ))}
       </motion.div>
 
-      <Header />
+      <Header state={state} />
       <Main d='590px' c='590px' content={<ButtonMenu />} />
     </>
   );

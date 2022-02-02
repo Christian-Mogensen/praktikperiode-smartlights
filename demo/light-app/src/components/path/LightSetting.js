@@ -14,9 +14,7 @@ const LightSetting = () => {
   return (
     <>
       <motion.div
-        initial={{ rotate: -90 }}
-        animate={{ rotate: 0 }}
-        transition={{ duration: 1 }}
+      layout
       >
         {coordsArr.map((circlepos, index) => (
           <BgCircle key={index} coords={circlepos} />
@@ -25,7 +23,7 @@ const LightSetting = () => {
       <HeaderTwo icon={<BackIcon />} clickedBtn={"Bed"} />
       <DemoLight />
       <LightBtns />
-      <Main d='590px' c='470px' content={<SettingWrapper />} />
+      <Main content={<SettingWrapper />} />
     </>
   );
 };

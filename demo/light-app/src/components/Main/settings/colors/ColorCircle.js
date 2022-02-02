@@ -1,8 +1,6 @@
 import React from 'react';
 import {motion} from 'framer-motion'
 const ColorCircle = ({clr, val, fm}) => {
-
-console.log(fm);
   return <motion.div
   initial={{x:fm}}
   animate={{x:0}}
