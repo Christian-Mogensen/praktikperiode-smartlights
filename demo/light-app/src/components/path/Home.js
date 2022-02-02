@@ -10,9 +10,11 @@ const Home = ({state}) => {
   return (
     <>
       <motion.div
-        initial={{ rotate: 90 }}
-        animate={{ rotate: 0 }}
-        transition={{ duration: 1 }}
+      initial={{rotate:90}}
+      exit={{rotate:-90}}
+      animate={{rotate:0}}
+      layout
+      layoutId="circle"
       >
         {coordsArr.map((circlepos, index) => (
           <BgCircle key={index} coords={circlepos} />
@@ -20,7 +22,7 @@ const Home = ({state}) => {
       </motion.div>
 
       <Header state={state} />
-      <Main d='590px' c='590px' content={<ButtonMenu />} />
+      <Main content={<ButtonMenu />} />
     </>
   );
 };

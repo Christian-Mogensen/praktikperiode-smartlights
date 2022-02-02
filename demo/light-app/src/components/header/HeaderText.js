@@ -1,8 +1,12 @@
 import React from 'react';
 import {motion}from 'framer-motion'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react';
+import { ColorContext } from '../../hooks/colorContext';
 
 const HeaderText = ({val,icon,light,scdword, state}) => {
+  const {colorTheme} = useContext(ColorContext)
+
   return (
   <Link to='/'>
   <div className='cursor-pointer '> 
@@ -11,7 +15,8 @@ const HeaderText = ({val,icon,light,scdword, state}) => {
     initial={{opacity:0, y:-50}}
     animate={{opacity:1, y:0}}
     transition={{duration:0.5, delay:0.7}}
-    className='text-lg font-bold text-orange-400'>{light}</motion.h2>
+    style={{'color':`${colorTheme}`}}
+    className='text-lg font-bold'>{light}</motion.h2>
     </div>
     </Link>
     );

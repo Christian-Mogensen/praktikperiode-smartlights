@@ -14,7 +14,10 @@ const LightSetting = () => {
   return (
     <>
       <motion.div
-      layout
+            initial={{rotate:90}}
+            animate={{rotate:0}}
+            layout
+            layoutId="circle"
       >
         {coordsArr.map((circlepos, index) => (
           <BgCircle key={index} coords={circlepos} />
