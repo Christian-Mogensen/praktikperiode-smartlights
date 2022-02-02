@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 // Components
@@ -7,12 +8,13 @@ import Home from "./components/path/Home";
 import LightSetting from "./components/path/LightSetting";
 
 function App() {
+  const [textPos, setTextPos] = useState(false)
   return (
     <Wrapper>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
       <Routes>
-        <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/LightSetting" element={<LightSetting />}></Route>
+        <Route exact path="/" element={<Home state={()=>setTextPos(!textPos)} />}></Route>
+        <Route exact path="/LightSetting" element={<LightSetting state={()=>setTextPos(textPos)} />}></Route>
       </Routes>
       </AnimatePresence>
       <Footer />

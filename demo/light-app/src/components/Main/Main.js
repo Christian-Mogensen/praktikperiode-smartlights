@@ -1,25 +1,11 @@
-import {motion} from 'framer-motion'
-const Main = ({ content, d,c }) => {
-  const pageVariants = {
-    initial: {
-      height:d,
-    },
-    in: {
-      height:c,
-    },
-    out: {
-      height:d,
-    },
-  }
+import { motion } from "framer-motion";
+const Main = ({ content }) => {
   return (
-    
-    <motion.main 
-    initial="initial"
-    animate="in"
-    exit="out"
-    variants={pageVariants}
-    transition={{duration:1}}
-    className="fixed bottom-[68px] left-0 w-[375px] bg-[#F6F8FB] max-h-[656px] rounded-t-[31px] p-6">
+    <motion.main
+      layout
+      layoutId="main"
+      className="fixed z-50 bottom-[68px] left-0 w-[375px] bg-[#F6F8FB] max-h-[656px] rounded-t-[31px] p-6"
+    >
       {content}
     </motion.main>
   );
