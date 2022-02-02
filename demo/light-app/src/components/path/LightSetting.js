@@ -24,7 +24,7 @@ const LightSetting = () => {
         ))}
       </motion.div>
       <HeaderTwo icon={<BackIcon />} clickedBtn={"Bed"} />
-      <DemoLight />
+
       <LightBtns />
       <Main content={<SettingWrapper />} />
     </>
