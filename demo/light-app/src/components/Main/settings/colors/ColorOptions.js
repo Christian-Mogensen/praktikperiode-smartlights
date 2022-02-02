@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 const ColorOptions = () => {
   const colors = [
-    { clr: "bg-red-400", val: "", fmiv:0 },
-    { clr: "bg-green-400", val: "", fmiv:-23 },
-    { clr: "bg-blue-400", val: "", fmiv:-45 },
-    { clr: "bg-purple-400", val: "", fmiv:-65 },
-    { clr: "bg-pink-400", val: "", fmiv:-87 },
-    { clr: "bg-orange-400", val: "", fmiv:-107 },
-    { clr: "bg-white", val: "+", fmiv:-130 }
+    { clr: "#FF9B9B", val: "", fmiv:0 },
+    { clr: "#94EB9E", val: "", fmiv:-23 },
+    { clr: "#94CAEB", val: "", fmiv:-45 },
+    { clr: "#A594EB", val: "", fmiv:-65 },
+    { clr: "#DE94EB", val: "", fmiv:-87 },
+    { clr: "#EBD094", val: "", fmiv:-107 },
+    { clr: "#FFFFFF", val: "+", fmiv:-130 }
   ];
   return (
     <div>
