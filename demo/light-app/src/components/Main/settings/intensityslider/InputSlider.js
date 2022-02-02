@@ -26,9 +26,9 @@ class InputSlider extends React.Component {
     return (
       <div className="flex items-end w-full gap-3">
         <motion.div
-          className="fixed top-0 left-[228px]"
-          initial={{ y: "-20%" }}
-          animate={{ y: 0 }}
+          className="fixed -z-30 top-0 left-[-180px]"
+          initial={{ y: -100 }}
+          animate={{ y: 0, x:380 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <DemonstrationLight
