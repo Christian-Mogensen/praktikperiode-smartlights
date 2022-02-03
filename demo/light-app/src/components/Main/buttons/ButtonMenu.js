@@ -1,4 +1,7 @@
 import React from "react";
+import {motion} from 'framer-motion'
+
+
 import Button from "./Button";
 import bedImg from "../../../assets/img/button/bed.png";
 import livingRoomImg from "../../../assets/img/button/room.png";
@@ -8,42 +11,47 @@ import houseImg from "../../../assets/img/button/house.png";
 import balchonyImg from "../../../assets/img/button/balcony.png";
 import Header from "../Header";
 
-import {motion} from 'framer-motion'
 
 const ButtonMenu = () => {
   const buttonContent = [
     {
-      name: "Bed room",
+      name: "Bed",
+      place: " room",
       light: "4 Lights",
       src: bedImg,
       path:"/LightSetting"
     },
     {
-      name: "Living room",
+      name: "Living",
+      place: " room",
       light: "2 Lights",
       src: livingRoomImg,
       path:"/LightSetting"
     },
     {
       name: "Kitchen",
+      place: "",
       light: "5 Lights",
       src: kitchenImg,
       path:"/LightSetting"
     },
     {
       name: "Bathroom",
+      place: "",
       light: "1 Light",
       src: bathroomImg,
       path:"/LightSetting"
     },
     {
       name: "Outdoor",
+      place: "",
       light: "5 Lights",
       src: houseImg,
       path:"/LightSetting"
     },
     {
       name: "Balcony",
+      place: "",
       light: "2 Lights",
       src: balchonyImg,
       path:"/LightSetting"
@@ -63,7 +71,7 @@ const ButtonMenu = () => {
     hidden: { opacity: 0 },
     show: { opacity: 1 }
   }
-  return (
+    return (
     <>
       <Header value={"All rooms"} />
       <motion.div variants={container}
@@ -74,8 +82,9 @@ const ButtonMenu = () => {
           <Button
             key={`uni-${index}`}
             btnImg={btn.src}
-            btnH={btn.name}
-            btnS={btn.light}
+            name={btn.name}
+            place={btn.place}
+            light={btn.light}
             clickRoute={btn.path}
             variant={item}
           />
