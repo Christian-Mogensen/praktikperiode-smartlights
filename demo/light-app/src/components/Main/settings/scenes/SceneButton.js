@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import SceneBulb from '../../../../assets/img/icons/scenesection/SceneBulb';
 import {motion} from 'framer-motion'
-const SceneButton = ({fmiv,clr,val}) => {
+import { ColorContext } from '../../../../hooks/colorContext';
+const SceneButton = ({fmiv,clr,val,keyframe}) => {
+  const {setScene} = useContext(ColorContext)
   return <motion.div 
+  onClick={()=>{setScene(keyframe)}}
   initial={{x:fmiv}}
   animate={{x:0}}
   transition={{duration:0.7, delay:1}}

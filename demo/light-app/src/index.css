@@ -67,3 +67,55 @@ color: white;
 .header-width {
     width: 10ch;
 }
+
+.keyframeFun{
+  animation-name: fun;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.keyframeParty{
+  animation-name: party;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.keyframeBirthday{
+  animation-name: birthday;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.keyframeRelax{
+  animation-name: relax;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes party {
+  0%{ background-color: red;}
+  20%{ fill: yellow;}
+  40%{ fill: green;}
+  60%{ fill: blue;}
+  80%{ fill: purple;}
+  100%{ fill: pink;}
+}
+@keyframes birthday {
+  0%{ fill: red;}
+  33%{ fill: white;}
+  66%{ fill: red;}
+  100%{ fill: white;}
+}
+@keyframes relax {
+  0%{ fill: white;}
+  50%{ fill: cyan;}
+  100%{ fill: white;}
+}
+@keyframes fun {
+  0%{ fill: green;}
+  10%{ fill: lime;}
+  20%{ fill: darkgreen;}
+  30%{ fill: limegreen;}
+  40%{ fill: green;}
+  50%{ fill: lime;}
+  60%{ fill: darkgreen;}
+  70%{ fill: limegreen;}
+  100%{ fill: green;}
+}
