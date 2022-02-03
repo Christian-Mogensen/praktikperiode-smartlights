@@ -10,38 +10,45 @@ import Home from "./components/path/Home";
 import LightSetting from "./components/path/LightSetting";
 import BgCircleContainer from "./components/wrapper/BgCircleContainer";
 import BgCircle from "./components/wrapper/BgCircle";
+import LoadingScreen from "./prototype/LoadingScreen";
 
 
 function App() {
-  const [textPos, setTextPos] = useState(false);
+  const [textPos, setTextPos] = useState(true);
   const coordsArr = ["-left-10 -top-10", "-right-24 top-0", "left-10 top-40"];
 
-  return (
+  setTimeout(() => {
+    setTextPos(false)
+  }, 3000);
+
+  return (<>
+  {textPos? <LoadingScreen />:
     <ColorProvider>
       <AnimatePresence exitBeforeEnter>
         <Wrapper>
         <BgCircleContainer>
         {coordsArr.map((circlepos, index) => (
           <BgCircle key={index} coords={circlepos} />
-        ))}
+          ))}
       </BgCircleContainer>
           <Routes>
             <Route
               exact
               path="/"
               element={<Home state={() => setTextPos(!textPos)} />}
-            ></Route>
+              ></Route>
 
             <Route
               exact
               path="/LightSetting"
               element={<LightSetting state={() => setTextPos(textPos)} />}
-            ></Route>
+              ></Route>
           </Routes>
           <Footer />
         </Wrapper>
       </AnimatePresence>
     </ColorProvider>
+}</>
   );
 }
 
