@@ -42,6 +42,7 @@ const LoadingScreen = () => {
 
   return (
 <Wrapper>
+  <div className="w-10 h-10 rounded-full fixed left-1/2 top-1/2 -translate-1/2 keyframe "></div>
 <BgCircleContainer>
         {coordsArr.map((circlepos, index) => (
           <BgCircleLoading key={index} coords={circlepos} />
