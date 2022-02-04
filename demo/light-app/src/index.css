@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: 'Montserrat';
+}
+
 .profil__img-dropshadow{
     box-shadow: 0 3px 5px 0px rgba(0, 45, 103,0.34);
 }
@@ -118,4 +122,32 @@ color: white;
   60%{ fill: darkgreen;}
   70%{ fill: limegreen;}
   100%{ fill: green;}
+}
+
+
+.gradientBirthday {
+  background: rgb(255,155,155);
+background: linear-gradient(54deg, rgba(255,155,155,1) 14%, rgba(255,188,145,1) 100%);
+}
+.gradientParty {
+  background: rgb(166,147,235);
+background: linear-gradient(54deg, rgba(166,147,235,1) 14%, rgba(218,147,235,1) 100%);
+}
+.gradientRelax {
+  background: rgb(147,202,235);
+background: linear-gradient(54deg, rgba(147,202,235,1) 14%, rgba(147,221,235,1) 100%);
+}
+.gradientFun {
+  background: rgb(137,221,148);
+background: linear-gradient(54deg, rgba(137,221,148,1) 14%, rgba(191,236,146,1) 100%);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url(./assets/fonts/montserrat/Montserrat-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url(./assets/fonts/montserrat/Montserrat-Bold.ttf) format('truetype');
 }
