@@ -76,7 +76,7 @@ const ButtonMenu = () => {
     show: { opacity: 1 }
   }
   const [formBtn,setFormBtn]=useState(false)
-const {login, setLogin, value, setValue} = useContext(ColorContext)
+const {login, setLogin, value, setValue,createAcc} = useContext(ColorContext)
 
 const stateChanger = () => {
   setFormBtn(!formBtn) 
@@ -84,7 +84,7 @@ const stateChanger = () => {
 }
     return (
     <>
-      <Header value={!formBtn?'All rooms':'Login'} />
+      <Header value={!formBtn?'All rooms':createAcc?'Login':'Sign up'} />
       {<div className="absolute -top-4 right-5">
         <div onClick={()=>stateChanger()} className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer  p-2 h-12 w-12 rounded-full">{!formBtn?<LoginIcon/>:<LoginCloseIcon/>}</div>
         </div>}

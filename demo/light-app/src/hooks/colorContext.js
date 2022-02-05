@@ -12,6 +12,9 @@ const ColorProvider = ({ children }) => {
   const [login, setLogin] = useState(true);
   const [value, setValue] = useState(true);
 
+  const [createAcc, setCreateAcc] = useState(true)
+
+
   const valueLib = useMemo(
     () => ({
       colorTheme,
@@ -30,6 +33,8 @@ const ColorProvider = ({ children }) => {
       setLogin,
       value,
       setValue,
+      createAcc,
+      setCreateAcc
     }),
     [
       colorTheme,
@@ -40,6 +45,7 @@ const ColorProvider = ({ children }) => {
       scene,
       login,
       value,
+      createAcc
     ]
   );
   return (
