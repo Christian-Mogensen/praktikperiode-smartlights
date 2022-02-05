@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import {motion} from 'framer-motion'
 
 
@@ -10,6 +10,10 @@ import bathroomImg from "../../../assets/img/button/bathtube.png";
 import houseImg from "../../../assets/img/button/house.png";
 import balchonyImg from "../../../assets/img/button/balcony.png";
 import Header from "../Header";
+import LoginIcon from "../../../assets/img/icons/LoginIcon";
+import LoginCloseIcon from "../../../assets/img/icons/LoginCloseIcon";
+import Formular from "../form/Formular";
+import { ColorContext } from "../../../hooks/colorContext";
 
 
 const ButtonMenu = () => {
@@ -71,9 +75,21 @@ const ButtonMenu = () => {
     hidden: { opacity: 0 },
     show: { opacity: 1 }
   }
+  const [formBtn,setFormBtn]=useState(false)
+const {login, setLogin, value, setValue} = useContext(ColorContext)
+
+const stateChanger = () => {
+  setFormBtn(!formBtn) 
+  setLogin(!value)
+}
     return (
     <>
-      <Header value={"All rooms"} />
+      <Header value={!formBtn?'All rooms':'Login'} />
+      {<div className="absolute -top-4 right-5">
+        <div onClick={()=>stateChanger()} className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer  p-2 h-12 w-12 rounded-full">{!formBtn?<LoginIcon/>:<LoginCloseIcon/>}</div>
+        </div>}
+        {formBtn?<Formular /> :
+        
       <motion.div variants={container}
       initial="hidden"
       animate="show"
@@ -89,7 +105,7 @@ const ButtonMenu = () => {
             variant={item}
           />
         ))}
-      </motion.div>
+      </motion.div>}
     </>
   );
 };

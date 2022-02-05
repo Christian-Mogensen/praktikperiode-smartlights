@@ -11,7 +11,13 @@ const btnItem = {
   show: { opacity: 1, x:0 }
 }
 const Button = ({clickRoute, variant, btnImg, name, place, light }) => {
+  
+  
+  
   const {colorTheme, setRoomStartWord, setRoomEndWord, setLightHeader} = useContext(ColorContext)
+  
+  
+  
   return (
     <Link to={clickRoute} onClick={()=>{
       setRoomStartWord(name)
@@ -24,8 +30,8 @@ const Button = ({clickRoute, variant, btnImg, name, place, light }) => {
       <motion.div variants={btnItem}>
         <motion.img variants={btnItem} src={`${btnImg}`} alt={`${name}${name} icon`} />
       </motion.div>
-      <div>
-        <motion.span variants={btnItem} className="block text-lg font-bold">{name}{place}</motion.span>
+      <div className="w-full ">
+        <motion.div variants={btnItem} className="w-full text-lg font-bold flex gap-1"><div>{name}</div><div>{place}</div></motion.div>
         <motion.div variants={btnItem} style={{"color":`${colorTheme}`}}className={`font-bold text-[13px]`}>{light}</motion.div>
       </div>
     </motion.div>
