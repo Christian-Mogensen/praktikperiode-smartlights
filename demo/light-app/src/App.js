@@ -14,12 +14,12 @@ import LoadingScreen from "./prototype/LoadingScreen";
 
 
 function App() {
-  const [textPos, setTextPos] = useState(true);
+  const [textPos, setTextPos] = useState(false);
   const coordsArr = ["-left-10 -top-10", "-right-24 top-0", "left-10 top-40"];
 
-  setTimeout(() => {
-    setTextPos(false)
-  }, 3000);
+  // setTimeout(() => {
+  //   setTextPos(true)
+  // }, 3000);
 
 
   return (<>
