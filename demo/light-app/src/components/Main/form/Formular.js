@@ -7,11 +7,14 @@ import {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   signInWithGoogle,
+  sendPasswordReset
 } from "../../../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { ColorContext } from "../../../hooks/colorContext";
 import FormSwitcher from "./FormSwitcher";
+import { AiOutlineRight,AiOutlineLeft } from "react-icons/ai";
+
 
 const Formular = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +47,7 @@ const Formular = () => {
 
   const formChild = {
     hidden: { opacity: 0, x: 50 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+    show: { opacity: 1, x: 0, transition: { duration: 0.1 } },
   };
 
   const register = () => {
@@ -104,7 +107,7 @@ const Formular = () => {
               </div>
               <FormSwitcher
               variants={formChild}
-              onClick={() => setCreateAcc(!createAcc)}
+              onClick={() => sendPasswordReset(email)}
               val={'reset password'}
             />      
           </>
@@ -147,11 +150,18 @@ const Formular = () => {
           </>
         )}
       </motion.div>
+      {createAcc?
       <FormSwitcher
-              variants={formChild}
               onClick={() => setCreateAcc(!createAcc)}
-              val={createAcc?'create account':'Allready have an account'}
-            />
+              val='create account'
+              icon={<AiOutlineRight/>}
+              iconPos='right-2'
+              />:<FormSwitcher
+              onClick={() => setCreateAcc(!createAcc)}
+            val={'Allready have an account'}
+            icon={<AiOutlineLeft/>}
+            iconPos='left-2'
+            />}
     </div>
   );
 };
