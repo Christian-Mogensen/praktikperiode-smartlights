@@ -7,7 +7,8 @@ import {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   signInWithGoogle,
-  sendPasswordReset
+  sendPasswordReset,
+  signInWithGithub
 } from "../../../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -103,6 +104,11 @@ const Formular = () => {
               val="Sign in with Google"
               variant={formChild}
               onClick={signInWithGoogle}
+              />
+            <InputSubmit
+              val="Sign in with Github"
+              variant={formChild}
+              onClick={signInWithGithub}
               />
               </div>
               <FormSwitcher

@@ -5,12 +5,14 @@ import PowerOff from '../../../assets/img/icons/PowerOff';
 import ColorOptions from './colors/ColorOptions';
 import IntensitySlider from './intensityslider/IntensitySlider';
 import SceneContainer from './scenes/SceneContainer';
+import { MdOutlineSaveAlt } from "react-icons/md";
+
 const SettingWrapper = () => {
   const {setRoomStartWord,setRoomEndWord, setLightHeader} = useContext(ColorContext)
   return (
   <div
   className='relative'>
-    <div className='absolute -right-2 -top-12'><Link to='/'      onClick={() => {
+    <div className='absolute -right-2 -top-12'><Link to='/' onClick={() => {
         setRoomStartWord("Control");
         setRoomEndWord("panel");
         setLightHeader("");
@@ -18,6 +20,7 @@ const SettingWrapper = () => {
       <IntensitySlider />
       <ColorOptions />
       <SceneContainer />
+      
   </div>
   );
 };
