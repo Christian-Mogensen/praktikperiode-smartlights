@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ColorProvider } from "./hooks/colorContext";
 
@@ -17,13 +17,13 @@ function App() {
   const [textPos, setTextPos] = useState(false);
   const coordsArr = ["-left-10 -top-10", "-right-24 top-0", "left-10 top-40"];
 
-  // setTimeout(() => {
-  //   setTextPos(true)
-  // }, 3000);
+  setTimeout(() => {
+    setTextPos(true)
+  }, 3000);
 
-
+ 
   return (<>
-  {textPos? <LoadingScreen />:
+  {!textPos? <LoadingScreen />:
     <ColorProvider>
       <AnimatePresence exitBeforeEnter>
         <Wrapper>
@@ -41,7 +41,7 @@ function App() {
 
             <Route
               exact
-              path="/LightSetting"
+              path="/:slug"
               element={<LightSetting state={() => setTextPos(textPos)} />}
               ></Route>
           </Routes>

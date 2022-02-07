@@ -1,14 +1,17 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 const ColorContext = createContext();
 
 const ColorProvider = ({ children }) => {
   const [colorTheme, setColorTheme] = useState("#FFD139");
-  const [alphaValue, setAlphaValue] = useState("99");
+  const [alphaValue, setAlphaValue] = useState(50);
+  const [scene, setScene] = useState("");
+
+
+
   const [roomStartWord, setRoomStartWord] = useState("Control");
   const [roomEndWord, setRoomEndWord] = useState("panel");
   const [lightHeader, setLightHeader] = useState("");
-  const [scene, setScene] = useState("");
   const [login, setLogin] = useState(true);
   const [value, setValue] = useState(true);
 
@@ -53,3 +56,6 @@ const ColorProvider = ({ children }) => {
   );
 };
 export { ColorContext, ColorProvider };
+export const useColorContext = () =>{
+  return useContext(ColorContext)
+}
