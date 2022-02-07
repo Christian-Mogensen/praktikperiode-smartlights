@@ -7,6 +7,7 @@ import UserHeader from "../Main/user/UserHeader";
 
 const Home = ({state}) => {
   const [user] = useAuthState(auth)
+  console.log(user);
   const userProf = []
   userProf.push(user)
   return (
