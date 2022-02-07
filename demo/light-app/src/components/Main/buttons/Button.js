@@ -1,7 +1,8 @@
 import React, {useContext} from "react";
-import {motion} from 'framer-motion'
+import {motion} from 'framer-motion';
+
 import {
-  Link
+  Link, useParams
 } from 'react-router-dom';
 import { ColorContext } from "../../../hooks/colorContext";
 
@@ -19,7 +20,7 @@ const Button = ({clickRoute, id, variant, btnImg, name, place, light }) => {
   
   
   return (
-    <Link to={clickRoute} onClick={()=>{
+    <Link to={`/${name}`} onClick={()=>{
       setRoomStartWord(name)
       setRoomEndWord(place)
       setLightHeader(light)
