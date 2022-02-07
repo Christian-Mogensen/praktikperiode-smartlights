@@ -4,7 +4,7 @@ const ColorContext = createContext();
 
 const ColorProvider = ({ children }) => {
   const [colorTheme, setColorTheme] = useState("#FFD139");
-  const [alphaValue, setAlphaValue] = useState(50);
+  const [stateAlphaVal, setStateAlphaVal] = useState({ x: 10 });
   const [scene, setScene] = useState("");
 
 
@@ -22,8 +22,8 @@ const ColorProvider = ({ children }) => {
     () => ({
       colorTheme,
       setColorTheme,
-      alphaValue,
-      setAlphaValue,
+      stateAlphaVal,
+      setStateAlphaVal,
       roomStartWord,
       setRoomStartWord,
       roomEndWord,
@@ -41,7 +41,7 @@ const ColorProvider = ({ children }) => {
     }),
     [
       colorTheme,
-      alphaValue,
+      stateAlphaVal,
       roomStartWord,
       roomEndWord,
       lightHeader,
