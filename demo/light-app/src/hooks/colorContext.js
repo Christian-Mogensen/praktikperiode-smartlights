@@ -56,6 +56,7 @@ const ColorProvider = ({ children }) => {
   );
 };
 export { ColorContext, ColorProvider };
+
 export const useColorContext = () =>{
   return useContext(ColorContext)
 }

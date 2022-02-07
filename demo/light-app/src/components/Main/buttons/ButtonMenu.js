@@ -108,19 +108,20 @@ const ButtonMenu = () => {
       <Header
         value={!formBtn ? "All rooms" : createAcc ? "Login" : "Sign up"}
       />
+      <motion.div className="absolute -top-3 right-16 text-right "><p  className="bg-gray-50 px-1 rounded-md shadow-md">{!formBtn&&!user?'log in':user?'log out':'close'}</p></motion.div>
         {!user&&<div className="absolute -top-4 right-5">
           <div
             onClick={() => stateChanger()}
-            className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer  p-2 h-12 w-12 rounded-full"
+            className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer   p-1 h-8 w-8 rounded-full"
           >
             {!formBtn ? <LoginIcon /> : <LoginCloseIcon />}
           </div>
         </div>}
         
-        {user&&<div className="absolute -top-4 left-24">
+        {user&&<div className="absolute -top-4 right-5">
           <div
             onClick={logout}
-            className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer  p-2 h-12 w-12 rounded-full"
+            className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer  p-1 h-8 w-8 rounded-full"
           >
             <LogOutIcon />
           </div>

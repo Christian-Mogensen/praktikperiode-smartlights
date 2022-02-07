@@ -34,7 +34,7 @@ const Formular = () => {
     if (user) {
       navigate("/");
     }
-  }, [user, loading]);
+  }, [user, loading, navigate]);
 
   const formParent = {
     hidden: { opacity: 0 },

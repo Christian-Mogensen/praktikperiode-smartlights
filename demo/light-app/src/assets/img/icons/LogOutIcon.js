@@ -1,7 +1,10 @@
 import * as React from "react"
-
+import {motion} from 'framer-motion'
 const LogOutIcon = (props) => (
-  <svg
+  <motion.svg
+  
+  initial={{x:-100}}
+  animate={{x:0}}
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
     x={0}
@@ -24,7 +27,7 @@ const LogOutIcon = (props) => (
       className="st0"
       d="M14.62 13.99 2.28 27.76l12.34 14.25M34.36 28H2.41"
     />
-  </svg>
+  </motion.svg>
 )
 
 export default LogOutIcon

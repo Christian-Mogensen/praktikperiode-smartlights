@@ -6,7 +6,7 @@ const UserHeader = () => {
     const [user] = useAuthState(auth)
     const userHeaderArr = []
     userHeaderArr.push(user)
-  return <h2 className='text-right absolute top-28 right-5 w-full text-white'>{user?`Welcome ${userHeaderArr[0].displayName}`: 'Welcome Guest!'}</h2>;
+  return <h2 className='text-right absolute top-28 right-5 w-full text-white'>{user?`${userHeaderArr[0].displayName}`: 'Guest'}</h2>;
 };
 
 export default UserHeader;

@@ -21,7 +21,7 @@ const DemonstrationLight = () => {
         >
           <feOffset dy="3"></feOffset>
           <feGaussianBlur result="blur" stdDeviation="8"></feGaussianBlur>
-          <feFlood floodColor={`${colorTheme}${stateAlphaVal.x}`}></feFlood>
+          <feFlood floodColor={`${colorTheme}`}></feFlood>
           <feComposite in2="blur" operator="in"></feComposite>
           <feComposite in="SourceGraphic"></feComposite>
         </filter>
@@ -32,8 +32,8 @@ const DemonstrationLight = () => {
             cx="11"
             cy="11"
             r="11"
-            fill={`#ffffff50`}
-            className={`${scene}`}
+            fill={`#ffffff${stateAlphaVal.x}`}
+            
             data-name="Ellipse 10"
             transform="translate(59 110)"
           ></circle>
@@ -42,6 +42,7 @@ const DemonstrationLight = () => {
             cy="11"
             r="11"
             fill={`${colorTheme}${stateAlphaVal.x}`}
+            className={`${scene}`}
             data-name="Ellipse 10"
             transform="translate(59 110)"
           ></circle>
