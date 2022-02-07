@@ -7,7 +7,6 @@ import BgCircleLoading from '../components/wrapper/BgCircleLoading';
 
 const LoadingScreen = () => {
   const smartlightArr = [...'smartlight']
-  console.log(smartlightArr);
 
   const slParent = {
     hidden: { 

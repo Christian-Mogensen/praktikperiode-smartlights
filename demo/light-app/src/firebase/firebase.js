@@ -17,6 +17,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 const firebaseConfig = {
     apiKey: "AIzaSyAIzirm8sE5qz-m7Pa8KRa9aOqK2NpNlIw",
     authDomain: "smartlight-8f633.firebaseapp.com",
@@ -58,13 +59,14 @@ const signInWithGithub = async () => {
   try {
     const res = await signInWithPopup(auth, githubProvider);
     const user = res.user;
+    console.log(user);
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "users"), {
         uid: user.uid,
         name: user.displayName,
-        authProvider: "Github",
+        authProvider: "github",
         email: user.email,
       });
     }
@@ -110,7 +112,7 @@ const logInWithEmailAndPassword = async (email, password) => {
   };
 
   const logout = () => {
-    signOut(auth);
+    signOut(auth)
   };
 
   export {
@@ -123,3 +125,5 @@ const logInWithEmailAndPassword = async (email, password) => {
     sendPasswordReset,
     logout,
   };
+
+  export const storage = getStorage(app)
