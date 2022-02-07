@@ -1,8 +1,8 @@
 import React,{ useContext } from 'react';
 import { ColorContext } from '../../../../hooks/colorContext';
 
-const DemonstrationLight = ({alpha}) => {
-  const {colorTheme, scene} = useContext(ColorContext)
+const DemonstrationLight = () => {
+  const {colorTheme, scene, stateAlphaVal} = useContext(ColorContext)
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ const DemonstrationLight = ({alpha}) => {
         >
           <feOffset dy="3"></feOffset>
           <feGaussianBlur result="blur" stdDeviation="8"></feGaussianBlur>
-          <feFlood floodColor={`${colorTheme}${alpha}`} className={`${scene}`}></feFlood>
+          <feFlood floodColor={`${colorTheme}${stateAlphaVal.x}`}></feFlood>
           <feComposite in2="blur" operator="in"></feComposite>
           <feComposite in="SourceGraphic"></feComposite>
         </filter>
@@ -33,6 +33,7 @@ const DemonstrationLight = ({alpha}) => {
             cy="11"
             r="11"
             fill={`#ffffff50`}
+            className={`${scene}`}
             data-name="Ellipse 10"
             transform="translate(59 110)"
           ></circle>
@@ -40,8 +41,7 @@ const DemonstrationLight = ({alpha}) => {
             cx="11"
             cy="11"
             r="11"
-            fill={`${colorTheme}${alpha}`}
-            className={`${scene}`}
+            fill={`${colorTheme}${stateAlphaVal.x}`}
             data-name="Ellipse 10"
             transform="translate(59 110)"
           ></circle>
