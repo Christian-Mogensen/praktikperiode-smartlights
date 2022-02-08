@@ -1,5 +1,7 @@
-import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
+import { deleteDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { GrPowerReset } from "react-icons/gr";
 import { Link, useParams } from "react-router-dom";
 import PowerOff from "../../../assets/img/icons/PowerOff";
 import { auth, db } from "../../../firebase/firebase";
@@ -8,8 +10,6 @@ import ColorOptions from "./colors/ColorOptions";
 import IntensitySlider from "./intensityslider/IntensitySlider";
 import SaveComp from "./SaveComp";
 import SceneContainer from "./scenes/SceneContainer";
-import { useEffect, useState } from "react";
-import { GrPowerReset } from "react-icons/gr";
 
 const SettingWrapper = () => {
   const {

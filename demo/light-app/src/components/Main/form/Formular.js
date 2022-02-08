@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import InputField from "./InputField";
-import InputSubmit from "./InputSubmit";
 import { motion } from "framer-motion";
+import React, { useContext, useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import {
   auth,
   logInWithEmailAndPassword,
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-  sendPasswordReset,
-  signInWithGithub
+  registerWithEmailAndPassword, sendPasswordReset,
+  signInWithGithub, signInWithGoogle
 } from "../../../firebase/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
 import { ColorContext } from "../../../hooks/colorContext";
 import FormSwitcher from "./FormSwitcher";
-import { AiOutlineRight,AiOutlineLeft } from "react-icons/ai";
+import InputField from "./InputField";
+import InputSubmit from "./InputSubmit";
 
 
 const Formular = () => {
@@ -72,7 +70,7 @@ const Formular = () => {
         variants={formParent}
         initial="hidden"
         animate="show"
-        className="grid mb-5 grid-cols-1 h-2/3 overflow-hidden"
+        className="grid grid-cols-1 mb-5 overflow-hidden h-2/3"
       >
         {createAcc ? (
           <>

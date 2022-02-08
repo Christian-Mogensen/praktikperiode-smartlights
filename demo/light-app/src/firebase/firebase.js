@@ -1,24 +1,11 @@
+import { initializeApp } from "firebase/app";
 import {
-  GoogleAuthProvider,
-  GithubAuthProvider,
-  getAuth,
-  signInWithPopup,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signOut,
+  createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut
 } from "firebase/auth";
 import {
-  getFirestore,
-  query,
-  getDocs,
-  collection,
-  where,
-  addDoc,
-  setDoc,
-  doc,
+  collection, doc, getDocs, getFirestore,
+  query, setDoc, where
 } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 const firebaseConfig = {
     apiKey: "AIzaSyAIzirm8sE5qz-m7Pa8KRa9aOqK2NpNlIw",
@@ -88,7 +75,7 @@ const logInWithEmailAndPassword = async (email, password) => {
 
   const registerWithEmailAndPassword = async (name, email, password) => {
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const res = await createUserWithEmailAndPassword(auth, email, name, password);
       const user = res.user;
       await setDoc(doc(db, "users", user.uid), {
         uid: user.uid,
@@ -117,14 +104,14 @@ const logInWithEmailAndPassword = async (email, password) => {
   };
 
   export {
-    auth,
-    db,
-    signInWithGoogle,
-    signInWithGithub,
-    logInWithEmailAndPassword,
-    registerWithEmailAndPassword,
-    sendPasswordReset,
-    logout,
-  };
+  auth,
+  db,
+  signInWithGoogle,
+  signInWithGithub,
+  logInWithEmailAndPassword,
+  registerWithEmailAndPassword,
+  sendPasswordReset,
+  logout,
+};
 
   export const storage = getStorage(app)
