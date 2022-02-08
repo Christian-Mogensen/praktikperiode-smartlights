@@ -1,4 +1,4 @@
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useParams } from "react-router-dom";
 import PowerOff from "../../../assets/img/icons/PowerOff";
@@ -9,6 +9,7 @@ import IntensitySlider from "./intensityslider/IntensitySlider";
 import SaveComp from "./SaveComp";
 import SceneContainer from "./scenes/SceneContainer";
 import { useEffect, useState } from "react";
+import { GrPowerReset } from "react-icons/gr";
 
 const SettingWrapper = () => {
   const {
@@ -48,7 +49,6 @@ const SettingWrapper = () => {
 
 
       if (docSnap.exists()) {
-        console.log("Document data:", docData.brightness.x);
       setStateAlphaVal({x:docData.brightness.x})
       setColorTheme(docData.color)
       setScene(docData.scene)
@@ -59,12 +59,10 @@ const SettingWrapper = () => {
       }
     })()
   },[])
+const resetDoc = async () => {
+  await deleteDoc(doc(db, "users", userId, `rooms/${slug}`));
+}
 
-// const [isLoggedIn, setIsLoggedIn] = useState(false)
-// useEffect(()=>{
-//   return user && setIsLoggedIn(true)
-// },[user])
-// console.log(isLoggedIn);
   return (
     <div className="relative">
       <div className="absolute -right-2 -top-12">
@@ -83,6 +81,7 @@ const SettingWrapper = () => {
       {userId&&<div className="absolute -top-40" onClick={() => createSetting(slug)}>
         <SaveComp />{" "}
       </div>}
+      <div className="absolute -top-40 left-20" onClick={resetDoc}> <div className="grid w-12 h-12 text-3xl bg-white rounded-full shadow-md shadow-gray-600 place-content-center" > <GrPowerReset /></div></div>
       <IntensitySlider />
       <ColorOptions />
       <SceneContainer />
