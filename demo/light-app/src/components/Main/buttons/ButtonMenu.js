@@ -17,13 +17,11 @@ import Header from "../Header";
 import Button from "./Button";
 import { getStorage, getDownloadURL, ref } from "firebase/storage";
 
-
 const ButtonMenu = () => {
   // const storage = getStorage()
-  
-  
+
   // const [imageUrl, setImageUrl] = useState('')
-  
+
   // useEffect(()=>{
   //   (async()=>{
   //     const imageRef = ref(storage, 'images/bed.png')
@@ -32,13 +30,40 @@ const ButtonMenu = () => {
   //   })()
   // },[storage])
 
-
   const buttonContent = [
     {
       name: "bed",
       place: " room",
       light: "4 Lights",
       src: bedImg,
+      path: "/LightSetting",
+    },
+    {
+      name: "living",
+      place: " room",
+      light: "2 Lights",
+      src: livingRoomImg,
+      path: "/LightSetting",
+    },
+    {
+      name: "kitchen",
+      place: "",
+      light: "5 Lights",
+      src: kitchenImg,
+      path: "/LightSetting",
+    },
+    {
+      name: "living",
+      place: " room",
+      light: "2 Lights",
+      src: livingRoomImg,
+      path: "/LightSetting",
+    },
+    {
+      name: "kitchen",
+      place: "",
+      light: "5 Lights",
+      src: kitchenImg,
       path: "/LightSetting",
     },
     {
@@ -99,36 +124,43 @@ const ButtonMenu = () => {
     setFormBtn(!formBtn);
     setLogin(!value);
   };
-  const [user] = useAuthState(auth)
+  const [user] = useAuthState(auth);
 
   // if(user === null) return setFormBtn(!formBtn)
-  
+
   return (
     <>
       <Header
         value={!formBtn ? "All rooms" : createAcc ? "Login" : "Sign up"}
       />
-      <motion.div className="absolute -top-3 right-16 text-right "><p  className="bg-gray-50 px-1 rounded-md shadow-md">{!formBtn&&!user?'log in':user?'log out':'close'}</p></motion.div>
-        {!user&&<div className="absolute -top-4 right-5">
+      <motion.div className="absolute h-[600px] overflow-auto text-right -top-3 right-16">
+        <p className="px-1 rounded-md shadow-md bg-gray-50">
+          {!formBtn && !user ? "log in" : user ? "log out" : "close"}
+        </p>
+      </motion.div>
+      {!user && (
+        <div className="absolute -top-4 right-5">
           <div
             onClick={() => stateChanger()}
-            className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer   p-1 h-8 w-8 rounded-full"
+            className="w-8 h-8 p-1 overflow-hidden bg-white rounded-full cursor-pointer white profil__img-dropshadow"
           >
             {!formBtn ? <LoginIcon /> : <LoginCloseIcon />}
           </div>
-        </div>}
-        
-        {user&&<div className="absolute -top-4 right-5">
+        </div>
+      )}
+
+      {user && (
+        <div className="absolute -top-4 right-5">
           <div
             onClick={logout}
-            className="white profil__img-dropshadow bg-white overflow-hidden cursor-pointer  p-1 h-8 w-8 rounded-full"
+            className="w-8 h-8 p-1 overflow-hidden bg-white rounded-full cursor-pointer white profil__img-dropshadow"
           >
             <LogOutIcon />
           </div>
-        </div>}
-      
-      {!user&&
-      formBtn ? (
+        </div>
+      )}
+
+      {!user && formBtn ? (
         <Formular />
       ) : (
         <motion.div

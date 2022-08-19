@@ -1,5 +1,5 @@
 import { deleteDoc, doc, getDoc, setDoc } from "firebase/firestore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { GrPowerReset } from "react-icons/gr";
 import { Link, useParams } from "react-router-dom";
@@ -29,40 +29,37 @@ const SettingWrapper = () => {
 
   const userId = user[0]?.uid;
   const createSetting = async (roomslug) => {
-
     await setDoc(doc(db, "users", userId, `rooms/${roomslug}`), {
       color: colorTheme,
       brightness: stateAlphaVal,
       scene: scene,
     });
   };
-  useEffect(()=>{
+  useEffect(() => {
     console.log(user[0]);
-  },[user])
+  }, [user]);
 
-  useEffect(()=>{
-    (async()=>{
-
+  useEffect(() => {
+    (async () => {
       const docRef = doc(db, "users", userId, `rooms/${slug}`);
       const docSnap = await getDoc(docRef);
-      const docData = docSnap.data()
-
+      const docData = docSnap.data();
 
       if (docSnap.exists()) {
-      setStateAlphaVal({x:docData.brightness.x})
-      setColorTheme(docData.color)
-      setScene(docData.scene)
-      console.log(stateAlphaVal);
+        setStateAlphaVal({ x: docData.brightness.x });
+        setColorTheme(docData.color);
+        setScene(docData.scene);
+        console.log(stateAlphaVal);
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }
-    })()
-  },[])
-const resetDoc = async () => {
-  await deleteDoc(doc(db, "users", userId, `rooms/${slug}`));
-}
-
+    })();
+  }, []);
+  const resetDoc = async () => {
+    await deleteDoc(doc(db, "users", userId, `rooms/${slug}`));
+  };
+  const [toggle, setToggle] = useState(true);
   return (
     <div className="relative">
       <div className="absolute -right-2 -top-12">
@@ -73,15 +70,37 @@ const resetDoc = async () => {
             setRoomEndWord("panel");
             setLightHeader("");
           }}
+        ></Link>
+        <button
+          onClick={() => {
+            setToggle(!toggle);
+            toggle
+              ? fetch(process.env.REACT_APP_URL, {
+                  method: "PUT",
+                  body: JSON.stringify({ on: true }),
+                })
+              : fetch(process.env.REACT_APP_URL, {
+                  method: "PUT",
+                  body: JSON.stringify({ on: false }),
+                });
+          }}
         >
-          <PowerOff />
-        </Link>
+          <PowerOff toggle={toggle} />
+        </button>
       </div>
-      
-      {userId&&<div className="absolute -top-40" onClick={() => createSetting(slug)}>
-        <SaveComp />{" "}
-      </div>}
-      <div className="absolute -top-40 left-20" onClick={resetDoc}> <div className="grid w-12 h-12 text-3xl bg-white rounded-full shadow-md shadow-gray-600 place-content-center" > <GrPowerReset /></div></div>
+
+      {userId && (
+        <div className="absolute -top-40" onClick={() => createSetting(slug)}>
+          <SaveComp />{" "}
+        </div>
+      )}
+      <div className="absolute -top-40 left-20" onClick={resetDoc}>
+        {" "}
+        <div className="grid w-12 h-12 text-3xl bg-white rounded-full shadow-md shadow-gray-600 place-content-center">
+          {" "}
+          <GrPowerReset />
+        </div>
+      </div>
       <IntensitySlider />
       <ColorOptions />
       <SceneContainer />

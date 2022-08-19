@@ -1,14 +1,12 @@
-
 import SettingWrapper from "../Main/settings/SettingWrapper";
 import HeaderTwo from "../header/HeaderTwo";
 import BackIcon from "../../assets/img/icons/BackIcon";
 import LightBtns from "../aside/LightBtns";
 import Main from "../Main/Main";
 import DemonstrationLight from "../../assets/img/icons/lights/DemonstrationLight";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
 const LightSetting = () => {
-
   return (
     <>
       <HeaderTwo icon={<BackIcon />} clickedBtn={"Bed"} />

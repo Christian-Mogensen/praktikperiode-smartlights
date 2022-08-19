@@ -7,19 +7,19 @@ const ColorProvider = ({ children }) => {
   const [stateAlphaVal, setStateAlphaVal] = useState({ x: 10 });
   const [scene, setScene] = useState("");
 
-
-
   const [roomStartWord, setRoomStartWord] = useState("Control");
   const [roomEndWord, setRoomEndWord] = useState("panel");
   const [lightHeader, setLightHeader] = useState("");
   const [login, setLogin] = useState(true);
   const [value, setValue] = useState(true);
+  const [lightToggle, setLightToggle] = useState(false);
 
-  const [createAcc, setCreateAcc] = useState(true)
-
+  const [createAcc, setCreateAcc] = useState(true);
 
   const valueLib = useMemo(
     () => ({
+      lightToggle,
+      setLightToggle,
       colorTheme,
       setColorTheme,
       stateAlphaVal,
@@ -37,9 +37,10 @@ const ColorProvider = ({ children }) => {
       value,
       setValue,
       createAcc,
-      setCreateAcc
+      setCreateAcc,
     }),
     [
+      lightToggle,
       colorTheme,
       stateAlphaVal,
       roomStartWord,
@@ -48,7 +49,7 @@ const ColorProvider = ({ children }) => {
       scene,
       login,
       value,
-      createAcc
+      createAcc,
     ]
   );
   return (
@@ -57,6 +58,6 @@ const ColorProvider = ({ children }) => {
 };
 export { ColorContext, ColorProvider };
 
-export const useColorContext = () =>{
-  return useContext(ColorContext)
-}
+export const useColorContext = () => {
+  return useContext(ColorContext);
+};

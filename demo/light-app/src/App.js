@@ -12,44 +12,46 @@ import BgCircleContainer from "./components/wrapper/BgCircleContainer";
 import BgCircle from "./components/wrapper/BgCircle";
 import LoadingScreen from "./prototype/LoadingScreen";
 
-
 function App() {
   const [textPos, setTextPos] = useState(false);
   const coordsArr = ["-left-10 -top-10", "-right-24 top-0", "left-10 top-40"];
 
-  setTimeout(() => {
-    setTextPos(true)
-  }, 3000);
+  // setTimeout(() => {
+  //   setTextPos(true)
+  // }, 3000);
 
- 
-  return (<>
-  {!textPos? <LoadingScreen />:
-    <ColorProvider>
-      <AnimatePresence exitBeforeEnter>
-        <Wrapper>
-        <BgCircleContainer>
-        {coordsArr.map((circlepos, index) => (
-          <BgCircle key={index} coords={circlepos} />
-          ))}
-      </BgCircleContainer>
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={<Home state={() => setTextPos(!textPos)} />}
-              ></Route>
+  return (
+    <>
+      {textPos ? (
+        <LoadingScreen />
+      ) : (
+        <ColorProvider>
+          <AnimatePresence exitBeforeEnter>
+            <Wrapper>
+              <BgCircleContainer>
+                {coordsArr.map((circlepos, index) => (
+                  <BgCircle key={index} coords={circlepos} />
+                ))}
+              </BgCircleContainer>
+              <Routes>
+                <Route
+                  exact
+                  path="/"
+                  element={<Home state={() => setTextPos(!textPos)} />}
+                ></Route>
 
-            <Route
-              exact
-              path="/:slug"
-              element={<LightSetting state={() => setTextPos(textPos)} />}
-              ></Route>
-          </Routes>
-          <Footer />
-        </Wrapper>
-      </AnimatePresence>
-    </ColorProvider>
-}</>
+                <Route
+                  exact
+                  path="/:slug"
+                  element={<LightSetting state={() => setTextPos(textPos)} />}
+                ></Route>
+              </Routes>
+              <Footer />
+            </Wrapper>
+          </AnimatePresence>
+        </ColorProvider>
+      )}
+    </>
   );
 }
 

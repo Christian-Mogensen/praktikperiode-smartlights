@@ -5,7 +5,7 @@ import SettingsIcon from "./footerIcons/SettingsIcon";
 
 const Footer = () => {
   return (
-    <footer className=" h-[68px] bg-white fixed bottom-0 w-[375px] left-0">
+    <footer className=" h-[68px] z-50 bg-white fixed bottom-0 w-[375px] left-0">
       <nav className="flex items-center justify-center h-full">
         <ul className="grid w-64 grid-cols-3 text-3xl">
           <FooterBtn icons={<LightBulb />} />

@@ -1,8 +1,8 @@
-import React,{ useContext } from 'react';
-import { ColorContext } from '../../../../hooks/colorContext';
+import React, { useContext } from "react";
+import { ColorContext } from "../../../../hooks/colorContext";
 
 const DemonstrationLight = () => {
-  const {colorTheme, scene, stateAlphaVal} = useContext(ColorContext)
+  const { colorTheme, scene, stateAlphaVal } = useContext(ColorContext);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -28,12 +28,12 @@ const DemonstrationLight = () => {
       </defs>
       <g data-name="light bulb" transform="translate(-204 4)">
         <g filter="url(#Ellipse_10)" transform="translate(204 -4)">
-        <circle
+          <circle
             cx="11"
             cy="11"
             r="11"
-            fill={`#ffffff${stateAlphaVal.x}`}
-            
+            fill={`#ffffff`}
+            style={{ opacity: "0." + stateAlphaVal }}
             data-name="Ellipse 10"
             transform="translate(59 110)"
           ></circle>
@@ -41,12 +41,12 @@ const DemonstrationLight = () => {
             cx="11"
             cy="11"
             r="11"
-            fill={`${colorTheme}${stateAlphaVal.x}`}
+            style={{ opacity: "0." + stateAlphaVal }}
+            fill={`${colorTheme}`}
             className={`${scene}`}
             data-name="Ellipse 10"
             transform="translate(59 110)"
           ></circle>
-          
         </g>
         <path
           fill="#fff"

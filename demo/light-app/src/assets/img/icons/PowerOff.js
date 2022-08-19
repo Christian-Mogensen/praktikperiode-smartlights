@@ -1,16 +1,18 @@
-import React from 'react';
-import {motion} from 'framer-motion'
-const PowerOff = () => {
+import React, { useContext } from "react";
+import { motion } from "framer-motion";
+import { ColorContext } from "../../../hooks/colorContext";
+const PowerOff = ({ toggle }) => {
+  const { colorTheme } = useContext(ColorContext);
   return (
     <motion.svg
-    initial={{opacity:0}}
-    animate={{opacity:1}}
-    transition={{delay:0.5, duration:0.1}}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5, duration: 0.1 }}
       xmlns="http://www.w3.org/2000/svg"
       width="50"
       height="50"
       viewBox="0 0 50 50"
-      className='cursor-pointer'
+      className="cursor-pointer"
     >
       <defs>
         <filter
@@ -40,13 +42,15 @@ const PowerOff = () => {
           ></circle>
         </g>
         <path
-          fill="#ff9696"
+          fill={colorTheme}
+          style={toggle ? { opacity: 0.5, fill: "gray" } : { opacity: 1 }}
           d="M14.421 1.913a8.767 8.767 0 11-10.189 0 .851.851 0 011.237.272l.559.993a.848.848 0 01-.233 1.1 5.939 5.939 0 107.067 0 .843.843 0 01-.23-1.092l.559-.993a.847.847 0 011.23-.276zm-3.676 7.421V.849A.846.846 0 009.9 0H8.765a.846.846 0 00-.849.849v8.485a.846.846 0 00.849.849H9.9a.846.846 0 00.845-.849z"
           data-name="Icon awesome-power-off"
           transform="translate(323.209 257.587)"
         ></path>
       </g>
-    </motion.svg>);
+    </motion.svg>
+  );
 };
 
 export default PowerOff;
